@@ -8,7 +8,7 @@ Built using **PyTorch**, **ResNet50**, and **Streamlit**. This project allows us
 
 ---
 
-##Features
+Features
 
 - Image classification using a fine-tuned **ResNet50**
 - Trained on the **Oxford Flowers 102 dataset**
@@ -19,7 +19,7 @@ Built using **PyTorch**, **ResNet50**, and **Streamlit**. This project allows us
 
 ---
 
-##Model Details
+Model Details
 
 - Base Model: `ResNet50 (pretrained)`
 - Fine-tuned layers: `layer3`, `layer4`, and `fc`
@@ -30,16 +30,16 @@ Built using **PyTorch**, **ResNet50**, and **Streamlit**. This project allows us
 
 ---
 
-##Final Performance
+Final Performance
 
 - **Test Accuracy:** 81.43%
-- **Precision:** 0.81
-- **Recall:** 0.81
-- **F1 Score:** 0.81
+- **Precision:** 83.89%
+- **Recall:** 81.30%
+- **F1 Score:** 81.05%
 
 ---
 
-##How to Run the App
+How to Run the App
 
 1. Clone the repository
 
