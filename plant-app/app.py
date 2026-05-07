@@ -61,8 +61,12 @@ if APIKEY:
 # Determine device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# Directory (bug fix for Streamlit file structure)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+class_names_path = os.path.join(BASE_DIR, "class_names.json")
+
 # Load Class Names
-with open("class_names.json", "r") as f:
+with open(class_names_path, "r") as f:
     class_names = json.load(f)
 
 # Load Model
@@ -75,8 +79,11 @@ model.fc = nn.Sequential(
     nn.Linear(512, len(class_names))
 )
 
+# Directory (bug fix for Streamlit file structure)
+model_path = os.path.join(BASE_DIR, "model.pth")
+
 model.load_state_dict(
-    torch.load("model.pth", map_location=device)
+    torch.load(model_path, map_location=device)
 )
 
 model = model.to(device)
