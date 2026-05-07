@@ -25,12 +25,12 @@ if "api_key_invalid" not in st.session_state:
 APIKEY = st.session_state.manual_api_key or env_api_key
 
 # If no key or invalid key, prompt user to enter one
-if not env_api_key or st.session_state.api_key_invalid:
+if not APIKEY or st.session_state.api_key_invalid:
 
     if st.session_state.api_key_invalid:
-        st.error("The Gemini API key in the .env file is invalid.")
+        st.error("The Gemini API key is invalid.")
     else:
-        st.warning("No Gemini API key found in .env")
+        st.warning("No Gemini API key found.")
 
     manual_key = st.text_input(
         "Enter a Gemini API Key for gemini-2.5-flash-lite",
@@ -42,10 +42,10 @@ if not env_api_key or st.session_state.api_key_invalid:
         # Save manual key
         st.session_state.manual_api_key = manual_key
 
-        # Clear invalid flag
+        # Reset invalid flag
         st.session_state.api_key_invalid = False
 
-        # Reload app with new key
+        # Reload app
         st.rerun()
 
 # Gemini Client Initialization
