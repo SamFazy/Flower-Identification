@@ -62,7 +62,7 @@ if APIKEY:
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load Class Names
-with open("../class_names.json", "r") as f:
+with open("class_names.json", "r") as f:
     class_names = json.load(f)
 
 # Load Model
@@ -76,7 +76,7 @@ model.fc = nn.Sequential(
 )
 
 model.load_state_dict(
-    torch.load("../model.pth", map_location=device)
+    torch.load("model.pth", map_location=device)
 )
 
 model = model.to(device)
